@@ -26,7 +26,6 @@ class QRScannerController: UIViewController,AVCaptureMetadataOutputObjectsDelega
             let input  = try AVCaptureDeviceInput(device: captureDevice!)
             
             captureSession = AVCaptureSession()
-            
             captureSession?.addInput(input)
             
             let captureMediadataOutput = AVCaptureMetadataOutput()
@@ -38,6 +37,7 @@ class QRScannerController: UIViewController,AVCaptureMetadataOutputObjectsDelega
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             videoPreviewLayer?.frame = view.layer.bounds
+            
             view.layer.addSublayer(videoPreviewLayer!)
             captureSession?.startRunning()
             
@@ -52,6 +52,7 @@ class QRScannerController: UIViewController,AVCaptureMetadataOutputObjectsDelega
                 view.bringSubview(toFront: qrCodeFrameView)
             }
         } catch {
+            
             print(error)
             return
         }
